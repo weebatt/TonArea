@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+</head>
+<body>
+    <header>
+        <p id="titanic-header">Titanic DAO</p>
+        <div id="ton-connect"></div>
+        <script>
+            const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+                manifestUrl: 'https://<YOUR_APP_URL>/tonconnect-manifest.json',
+                buttonRootId: 'ton-connect'
+            });
+        </script>
+    </header>
+    <main>
+        <div id="content">
+            <div id="button-container">
+                <button id="get-all-button">Spaces</button>
+                <button id="joined-button">Joined</button>
+                <button id="create-new-button">Create</button>
+                <button id="my-dao-button">My DAO</button>
+            </div>
+            <div id="info-container">
+                <form method="get" action="example" id="search-form">   <!--Форма для поиска по имени проекта, обрати внимание, что action не заполнен!!!-->
+                    <div id="search-container">
+                        <input type="submit" value=" " id="search-submit"> 
+                            
+                        </input>
+                        <input type="text" id="search-input">
+                    </div>
+                </form>
+                <div id="spaces-profiles-container"></div>
+                <!--Надо сделать пагинацию!!!!!-->
+            </div>
+        </div>
+    </main>
+    <div id="useless-widgets"></div>
+    <footer>
+        <div id="network-container">
+            <p id="network-accs-label">Subscribe</p>
+            <a id="tg-link" href="index.html"><img src="https://img.icons8.com/?size=100&id=F4ZPUh2Mk5tk&format=png&color=000000"/></a>
+            <a id="twitter-link" href="index.html"><img src="https://img.icons8.com/?size=100&id=phOKFKYpe00C&format=png&color=000000"/></a>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
