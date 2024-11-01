@@ -12,10 +12,11 @@ import lombok.*;
 public class OrganizationLinks {
 //
     @Id
-    private Integer id;
+    private Integer organization_id;
 
+    //Предлагаю переименовать слобец id в organization_id для этой сущности, так как нам не нужно отдельного id для линков
     @OneToOne
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @JoinColumn(name = "organization_id", referencedColumnName = "id")
     private Organization organization;
 
     @Column(name = "telegram", length = 128)
