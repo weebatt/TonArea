@@ -1,1 +1,0 @@
-There can be your advertising! Connect with us in [Titanic]{https://t.me/titanic_ton}
