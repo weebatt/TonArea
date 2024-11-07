@@ -10,12 +10,11 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrganizationLinks {
-//
     @Id
-    private Integer id;
+    private Integer organization_id;
 
     @OneToOne
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @JoinColumn(name = "organization_id", referencedColumnName = "id")
     private Organization organization;
 
     @Column(name = "telegram", length = 128)

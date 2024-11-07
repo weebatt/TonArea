@@ -1,6 +1,9 @@
 package by.titanic.server.models;
+
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.HashMap;
 
 @Entity
 @Table(name = "proposal")
@@ -12,6 +15,9 @@ public class Proposal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @ManyToOne
+    @JoinColumn(name = "organization_id", referencedColumnName = "id")
+    private Organization organization;
 
     @Column(name = "first_option", length = 64, nullable = false)
     private String firstOption;
@@ -29,8 +35,16 @@ public class Proposal {
     private java.sql.Timestamp endDate;
 
     @Column(name = "status", nullable = false)
-    private int status;
+    private String status;
 
     @Column(name = "topic", length = 128, nullable = false)
     private String topic;
+
+    public HashMap<String, String> getMapOfOptions() {
+        HashMap<String, String> options = new HashMap<>();
+        options.put("first_option", this.firstOption);
+        options.put("second_option", this.secondOption);
+        options.put("third_option", this.thirdOption);
+        return options;
+    }
 }

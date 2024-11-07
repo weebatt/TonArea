@@ -1,6 +1,5 @@
 package by.titanic.server.models;
 
-import by.titanic.server.models.OrganizationProposalId;
 import jakarta.persistence.*;
 import lombok.*;
 

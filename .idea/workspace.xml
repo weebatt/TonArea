@@ -5,9 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1743959-4e13-479c-bf35-b9f5278a81a2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/DTO/OrganizationProfileDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/DTO/ProposalInfoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/OrganizationLinksRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/ProposalInfoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/OrganizationProfileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/ProposalProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_24,_7_49 PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_24__7_49PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/OrganizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/OrganizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/ProposalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/ProposalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/OrganizationLinks.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/OrganizationLinks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/Proposal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/Proposal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/OrganizationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/OrganizationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/ProposalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/ProposalRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/OrganizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/OrganizationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/ProposalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/ProposalService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +60,8 @@
   </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/weebatt/Titanic.git&quot;,
-    &quot;accountId&quot;: &quot;13abb90e-1a0e-4b04-bbf6-7dae29780b59&quot;
+    &quot;url&quot;: &quot;git@github.com:weebatt/Titanic.git&quot;,
+    &quot;accountId&quot;: &quot;7555c989-c948-4692-9b20-3070650a544a&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -53,34 +72,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build Server.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Server.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/tu/ITMO&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build Server.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.Server.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ServerApplication.executor": "Run",
+    "git-widget-placeholder": "mainPageDevelopment1",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/macbook/pets/Titanic",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Server.main" />
@@ -93,8 +116,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
       </set>
     </attachedChunks>
   </component>
@@ -106,10 +129,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363231646</updated>
-      <workItem from="1730363232684" duration="6396000" />
-      <workItem from="1730458621942" duration="418000" />
-      <workItem from="1730624122220" duration="1675000" />
-      <workItem from="1730996447128" duration="1272000" />
+      <workItem from="1730363232684" duration="3870000" />
+      <workItem from="1730389597192" duration="4872000" />
+      <workItem from="1730405591083" duration="2705000" />
+      <workItem from="1730408349647" duration="7258000" />
+      <workItem from="1730463407057" duration="1597000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,5 @@
 package by.titanic.server.models;
+
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,6 +1,8 @@
 package by.titanic.server.controllers;
 
+import by.titanic.server.DTO.ProposalInfoDTO;
 import by.titanic.server.models.Proposal;
+import by.titanic.server.services.ProposalProfileService;
 import by.titanic.server.services.ProposalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,10 @@ public class ProposalController {
     @Autowired
     private ProposalService proposalService;
 
+    @Autowired
+    private ProposalProfileService proposalProfileService;
+
+
     @GetMapping
     public List<Proposal> getAllProposals() {
         return proposalService.getAllProposals();
@@ -22,5 +28,13 @@ public class ProposalController {
     @PostMapping
     public Proposal createProposal(@RequestBody Proposal proposal) {
         return proposalService.createProposal(proposal);
+    }
+
+    /**
+     *The method returns information for a specific offer page
+     */
+    @GetMapping("/{proposalId}")
+    public ProposalInfoDTO getProposal(@PathVariable Long proposalId) {
+        return proposalProfileService.showProposalProfile(proposalId);
     }
 }
