@@ -20,5 +20,8 @@ public class ProposalService {
     public Proposal createProposal(Proposal proposal) {
         return proposalRepository.save(proposal);
     }
+    public Proposal getProposalById(Integer id) {
+        return proposalRepository.findById(id).orElse(null);
+    }
 }
 

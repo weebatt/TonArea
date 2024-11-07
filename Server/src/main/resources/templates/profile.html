@@ -1,0 +1,37 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Profile Page</title>-->
+<!--    <link rel="stylesheet" href="/static/css/Profile.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="profile">-->
+<!--    <section class = "staticPart">-->
+<!--        <section class = "intro">-->
+<!--            <img th:src="@{/images/avatar.jpg}" alt="Avatar" id="avatar">-->
+
+<!--            <div class="social-links">-->
+<!--                <a th:href="${profile.twitterUrl}" target="_blank">Twitter</a>-->
+<!--                <a th:href="${profile.linkedinUrl}" target="_blank">LinkedIn</a>-->
+<!--                <a th:href="${profile.githubUrl}" target="_blank">GitHub</a>-->
+<!--            </div>-->
+<!--        </section>-->
+
+<!--        <button class="bookMarks" data-url = "/proposals">Proposals</button>-->
+<!--        <button class="bookMarks" data-url = "/about">About</button>-->
+
+<!--    </section>-->
+<!--    <section class = "dynamicContent">-->
+<!--        <div id = "proposals">-->
+<!--            <p th:text="${proposal}"></p>-->
+<!--        </div>-->
+<!--        <div id = "about">-->
+<!--            <p th:text="${information}"></p>-->
+<!--        </div>-->
+
+<!--    </section>-->
+
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+Тут я ещё надеялся на то, что нам подойдёт Thymeleaf, но в итоге мы работаем со строками json, которые нам возвращают контроллеры, поэтому это //TODO

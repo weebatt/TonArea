@@ -9,7 +9,6 @@ import java.util.List;
 
 @Service
 public class OrganizationService {
-
     @Autowired
     private OrganizationRepository organizationRepository;
 
@@ -20,5 +19,10 @@ public class OrganizationService {
     public Organization createOrganization(Organization organization) {
         return organizationRepository.save(organization);
     }
+    public Organization getOrganizationById(Integer id) {
+        return organizationRepository.getReferenceById(id);
+    }
+
+
 }
 
