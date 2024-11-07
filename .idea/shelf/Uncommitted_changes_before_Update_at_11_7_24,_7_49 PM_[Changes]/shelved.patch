@@ -1,0 +1,2132 @@
+Index: Server/src/main/java/by/titanic/server/services/OrganizationService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package by.titanic.server.services;\n\nimport by.titanic.server.models.Organization;\nimport by.titanic.server.repositories.OrganizationRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Service;\n\nimport java.util.List;\n\n@Service\npublic class OrganizationService {\n\n    @Autowired\n    private OrganizationRepository organizationRepository;\n\n    public List<Organization> getAllOrganizations() {\n        return organizationRepository.findAll();\n    }\n\n    public Organization createOrganization(Organization organization) {\n        return organizationRepository.save(organization);\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/services/OrganizationService.java b/Server/src/main/java/by/titanic/server/services/OrganizationService.java
+--- a/Server/src/main/java/by/titanic/server/services/OrganizationService.java	(revision fd7069268d2e4ffe8e75badcd5c57a8d681c01db)
++++ b/Server/src/main/java/by/titanic/server/services/OrganizationService.java	(date 1730997837506)
+@@ -9,7 +9,6 @@
+ 
+ @Service
+ public class OrganizationService {
+-
+     @Autowired
+     private OrganizationRepository organizationRepository;
+ 
+@@ -20,5 +19,10 @@
+     public Organization createOrganization(Organization organization) {
+         return organizationRepository.save(organization);
+     }
++    public Organization getOrganizationById(Integer id) {
++        return organizationRepository.getReferenceById(id);
++    }
++
++
+ }
+ 
+Index: Server/src/main/java/by/titanic/server/controllers/ProposalController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package by.titanic.server.controllers;\n\nimport by.titanic.server.models.Proposal;\nimport by.titanic.server.services.ProposalService;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.web.bind.annotation.*;\n\nimport java.util.List;\n\n@RestController\n@RequestMapping(\"/api/proposals\")\npublic class ProposalController {\n\n    @Autowired\n    private ProposalService proposalService;\n\n    @GetMapping\n    public List<Proposal> getAllProposals() {\n        return proposalService.getAllProposals();\n    }\n\n    @PostMapping\n    public Proposal createProposal(@RequestBody Proposal proposal) {\n        return proposalService.createProposal(proposal);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/controllers/ProposalController.java b/Server/src/main/java/by/titanic/server/controllers/ProposalController.java
+--- a/Server/src/main/java/by/titanic/server/controllers/ProposalController.java	(revision fd7069268d2e4ffe8e75badcd5c57a8d681c01db)
++++ b/Server/src/main/java/by/titanic/server/controllers/ProposalController.java	(date 1730998094872)
+@@ -23,4 +23,12 @@
+     public Proposal createProposal(@RequestBody Proposal proposal) {
+         return proposalService.createProposal(proposal);
+     }
++
++    /**
++     *Метод возращает информацию для страницы конкретного предложения
++     */
++    @GetMapping("/{proposalId}")
++    public ProposalInfoDTO getProposal(@PathVariable Long proposalId) {
++        return proposalProfileService.showProposalProfile(proposalId);
++    }
+ }
+Index: .idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6.xml
+===================================================================
+diff --git a/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6.xml b/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6.xml
+deleted file mode 100644
+--- a/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6.xml	(revision fd7069268d2e4ffe8e75badcd5c57a8d681c01db)
++++ /dev/null	(revision fd7069268d2e4ffe8e75badcd5c57a8d681c01db)
+@@ -1,973 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<dataSource name="postgres@localhost">
+-  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
+-    <root id="1">
+-      <DateStyle>mdy</DateStyle>
+-      <IntrospectionStateNumber>837</IntrospectionStateNumber>
+-      <ServerVersion>16.4</ServerVersion>
+-      <StartupTime>1730354993</StartupTime>
+-      <TimeZones>true ACDT
+-true ACSST
+-false ACST
+-false ACT
+-false ACWST
+-true ADT
+-true AEDT
+-true AESST
+-false AEST
+-false AFT
+-true AKDT
+-false AKST
+-true ALMST
+-false ALMT
+-false AMST
+-false AMT
+-false ANAST
+-false ANAT
+-false ARST
+-false ART
+-false AST
+-true AWSST
+-false AWST
+-true AZOST
+-false AZOT
+-false AZST
+-false AZT
+-false Africa/Abidjan
+-false Africa/Accra
+-false Africa/Addis_Ababa
+-false Africa/Algiers
+-false Africa/Asmara
+-false Africa/Bamako
+-false Africa/Bangui
+-false Africa/Banjul
+-false Africa/Bissau
+-false Africa/Blantyre
+-false Africa/Brazzaville
+-false Africa/Bujumbura
+-true Africa/Cairo
+-false Africa/Casablanca
+-false Africa/Ceuta
+-false Africa/Conakry
+-false Africa/Dakar
+-false Africa/Dar_es_Salaam
+-false Africa/Djibouti
+-false Africa/Douala
+-false Africa/El_Aaiun
+-false Africa/Freetown
+-false Africa/Gaborone
+-false Africa/Harare
+-false Africa/Johannesburg
+-false Africa/Juba
+-false Africa/Kampala
+-false Africa/Khartoum
+-false Africa/Kigali
+-false Africa/Kinshasa
+-false Africa/Lagos
+-false Africa/Libreville
+-false Africa/Lome
+-false Africa/Luanda
+-false Africa/Lubumbashi
+-false Africa/Lusaka
+-false Africa/Malabo
+-false Africa/Maputo
+-false Africa/Maseru
+-false Africa/Mbabane
+-false Africa/Mogadishu
+-false Africa/Monrovia
+-false Africa/Nairobi
+-false Africa/Ndjamena
+-false Africa/Niamey
+-false Africa/Nouakchott
+-false Africa/Ouagadougou
+-false Africa/Porto-Novo
+-false Africa/Sao_Tome
+-false Africa/Timbuktu
+-false Africa/Tripoli
+-false Africa/Tunis
+-false Africa/Windhoek
+-true America/Adak
+-true America/Anchorage
+-false America/Anguilla
+-false America/Antigua
+-false America/Araguaina
+-false America/Argentina/Buenos_Aires
+-false America/Argentina/Catamarca
+-false America/Argentina/Cordoba
+-false America/Argentina/Jujuy
+-false America/Argentina/La_Rioja
+-false America/Argentina/Mendoza
+-false America/Argentina/Rio_Gallegos
+-false America/Argentina/Salta
+-false America/Argentina/San_Juan
+-false America/Argentina/San_Luis
+-false America/Argentina/Tucuman
+-false America/Argentina/Ushuaia
+-false America/Aruba
+-true America/Asuncion
+-false America/Atikokan
+-true America/Atka
+-false America/Bahia
+-false America/Bahia_Banderas
+-false America/Barbados
+-false America/Belem
+-false America/Belize
+-false America/Blanc-Sablon
+-false America/Boa_Vista
+-false America/Bogota
+-true America/Boise
+-true America/Cambridge_Bay
+-false America/Campo_Grande
+-false America/Cancun
+-false America/Caracas
+-false America/Cayenne
+-false America/Cayman
+-true America/Chicago
+-false America/Chihuahua
+-true America/Ciudad_Juarez
+-false America/Coral_Harbour
+-false America/Costa_Rica
+-false America/Creston
+-false America/Cuiaba
+-false America/Curacao
+-false America/Danmarkshavn
+-false America/Dawson
+-false America/Dawson_Creek
+-true America/Denver
+-true America/Detroit
+-false America/Dominica
+-true America/Edmonton
+-false America/Eirunepe
+-false America/El_Salvador
+-true America/Ensenada
+-false America/Fort_Nelson
+-false America/Fortaleza
+-true America/Glace_Bay
+-true America/Goose_Bay
+-true America/Grand_Turk
+-false America/Grenada
+-false America/Guadeloupe
+-false America/Guatemala
+-false America/Guayaquil
+-false America/Guyana
+-true America/Halifax
+-true America/Havana
+-false America/Hermosillo
+-true America/Indiana/Indianapolis
+-true America/Indiana/Knox
+-true America/Indiana/Marengo
+-true America/Indiana/Petersburg
+-true America/Indiana/Tell_City
+-true America/Indiana/Vevay
+-true America/Indiana/Vincennes
+-true America/Indiana/Winamac
+-true America/Inuvik
+-true America/Iqaluit
+-false America/Jamaica
+-true America/Juneau
+-true America/Kentucky/Louisville
+-true America/Kentucky/Monticello
+-false America/Kralendijk
+-false America/La_Paz
+-false America/Lima
+-true America/Los_Angeles
+-false America/Lower_Princes
+-false America/Maceio
+-false America/Managua
+-false America/Manaus
+-false America/Marigot
+-false America/Martinique
+-true America/Matamoros
+-false America/Mazatlan
+-true America/Menominee
+-false America/Merida
+-true America/Metlakatla
+-false America/Mexico_City
+-true America/Miquelon
+-true America/Moncton
+-false America/Monterrey
+-false America/Montevideo
+-true America/Montreal
+-false America/Montserrat
+-true America/Nassau
+-true America/New_York
+-true America/Nipigon
+-true America/Nome
+-false America/Noronha
+-true America/North_Dakota/Beulah
+-true America/North_Dakota/Center
+-true America/North_Dakota/New_Salem
+-false America/Nuuk
+-true America/Ojinaga
+-false America/Panama
+-true America/Pangnirtung
+-false America/Paramaribo
+-false America/Phoenix
+-true America/Port-au-Prince
+-false America/Port_of_Spain
+-false America/Porto_Acre
+-false America/Porto_Velho
+-false America/Puerto_Rico
+-false America/Punta_Arenas
+-true America/Rainy_River
+-true America/Rankin_Inlet
+-false America/Recife
+-false America/Regina
+-true America/Resolute
+-false America/Rio_Branco
+-true America/Santa_Isabel
+-false America/Santarem
+-true America/Santiago
+-false America/Santo_Domingo
+-false America/Sao_Paulo
+-false America/Scoresbysund
+-true America/Shiprock
+-true America/Sitka
+-false America/St_Barthelemy
+-true America/St_Johns
+-false America/St_Kitts
+-false America/St_Lucia
+-false America/St_Thomas
+-false America/St_Vincent
+-false America/Swift_Current
+-false America/Tegucigalpa
+-true America/Thule
+-true America/Thunder_Bay
+-true America/Tijuana
+-true America/Toronto
+-false America/Tortola
+-true America/Vancouver
+-false America/Virgin
+-false America/Whitehorse
+-true America/Winnipeg
+-true America/Yakutat
+-true America/Yellowknife
+-false Antarctica/Casey
+-false Antarctica/Davis
+-false Antarctica/DumontDUrville
+-true Antarctica/Macquarie
+-false Antarctica/Mawson
+-true Antarctica/McMurdo
+-false Antarctica/Palmer
+-false Antarctica/Rothera
+-false Antarctica/Syowa
+-false Antarctica/Troll
+-false Antarctica/Vostok
+-false Arctic/Longyearbyen
+-false Asia/Aden
+-false Asia/Almaty
+-false Asia/Amman
+-false Asia/Anadyr
+-false Asia/Aqtau
+-false Asia/Aqtobe
+-false Asia/Ashgabat
+-false Asia/Atyrau
+-false Asia/Baghdad
+-false Asia/Bahrain
+-false Asia/Baku
+-false Asia/Bangkok
+-false Asia/Barnaul
+-false Asia/Beirut
+-false Asia/Bishkek
+-false Asia/Brunei
+-false Asia/Chita
+-false Asia/Choibalsan
+-false Asia/Chongqing
+-false Asia/Colombo
+-false Asia/Damascus
+-false Asia/Dhaka
+-false Asia/Dili
+-false Asia/Dubai
+-false Asia/Dushanbe
+-false Asia/Famagusta
+-false Asia/Gaza
+-false Asia/Harbin
+-false Asia/Hebron
+-false Asia/Ho_Chi_Minh
+-false Asia/Hong_Kong
+-false Asia/Hovd
+-false Asia/Irkutsk
+-false Asia/Istanbul
+-false Asia/Jakarta
+-false Asia/Jayapura
+-false Asia/Jerusalem
+-false Asia/Kabul
+-false Asia/Kamchatka
+-false Asia/Karachi
+-false Asia/Kashgar
+-false Asia/Kathmandu
+-false Asia/Khandyga
+-false Asia/Kolkata
+-false Asia/Krasnoyarsk
+-false Asia/Kuala_Lumpur
+-false Asia/Kuching
+-false Asia/Kuwait
+-false Asia/Macau
+-false Asia/Magadan
+-false Asia/Makassar
+-false Asia/Manila
+-false Asia/Muscat
+-false Asia/Nicosia
+-false Asia/Novokuznetsk
+-false Asia/Novosibirsk
+-false Asia/Omsk
+-false Asia/Oral
+-false Asia/Phnom_Penh
+-false Asia/Pontianak
+-false Asia/Pyongyang
+-false Asia/Qatar
+-false Asia/Qostanay
+-false Asia/Qyzylorda
+-false Asia/Riyadh
+-false Asia/Sakhalin
+-false Asia/Samarkand
+-false Asia/Seoul
+-false Asia/Shanghai
+-false Asia/Singapore
+-false Asia/Srednekolymsk
+-false Asia/Taipei
+-false Asia/Tashkent
+-false Asia/Tbilisi
+-false Asia/Tehran
+-false Asia/Tel_Aviv
+-false Asia/Thimphu
+-false Asia/Tokyo
+-false Asia/Tomsk
+-false Asia/Ulaanbaatar
+-false Asia/Urumqi
+-false Asia/Ust-Nera
+-false Asia/Vientiane
+-false Asia/Vladivostok
+-false Asia/Yakutsk
+-false Asia/Yangon
+-false Asia/Yekaterinburg
+-false Asia/Yerevan
+-false Atlantic/Azores
+-true Atlantic/Bermuda
+-false Atlantic/Canary
+-false Atlantic/Cape_Verde
+-false Atlantic/Faroe
+-false Atlantic/Jan_Mayen
+-false Atlantic/Madeira
+-false Atlantic/Reykjavik
+-false Atlantic/South_Georgia
+-false Atlantic/St_Helena
+-false Atlantic/Stanley
+-true Australia/Adelaide
+-false Australia/Brisbane
+-true Australia/Broken_Hill
+-true Australia/Canberra
+-true Australia/Currie
+-false Australia/Darwin
+-false Australia/Eucla
+-true Australia/Hobart
+-false Australia/Lindeman
+-true Australia/Lord_Howe
+-true Australia/Melbourne
+-false Australia/Perth
+-true Australia/Sydney
+-true Australia/Yancowinna
+-true BDST
+-false BDT
+-false BNT
+-false BORT
+-false BOT
+-false BRA
+-true BRST
+-false BRT
+-true BST
+-false BTT
+-true CADT
+-false CAST
+-false CCT
+-true CDT
+-true CEST
+-false CET
+-true CETDST
+-true CHADT
+-false CHAST
+-false CHUT
+-false CKT
+-true CLST
+-true CLT
+-false COT
+-false CST
+-true CST6CDT
+-false CXT
+-false DAVT
+-false DDUT
+-true EASST
+-true EAST
+-false EAT
+-true EDT
+-true EEST
+-false EET
+-true EETDST
+-true EGST
+-false EGT
+-false EST
+-true EST5EDT
+-false Etc/GMT
+-false Etc/GMT+0
+-false Etc/GMT+1
+-false Etc/GMT+10
+-false Etc/GMT+11
+-false Etc/GMT+12
+-false Etc/GMT+2
+-false Etc/GMT+3
+-false Etc/GMT+4
+-false Etc/GMT+5
+-false Etc/GMT+6
+-false Etc/GMT+7
+-false Etc/GMT+8
+-false Etc/GMT+9
+-false Etc/GMT-0
+-false Etc/GMT-1
+-false Etc/GMT-10
+-false Etc/GMT-11
+-false Etc/GMT-12
+-false Etc/GMT-13
+-false Etc/GMT-14
+-false Etc/GMT-2
+-false Etc/GMT-3
+-false Etc/GMT-4
+-false Etc/GMT-5
+-false Etc/GMT-6
+-false Etc/GMT-7
+-false Etc/GMT-8
+-false Etc/GMT-9
+-false Etc/GMT0
+-false Etc/Greenwich
+-false Etc/UCT
+-false Etc/UTC
+-false Etc/Universal
+-false Etc/Zulu
+-false Europe/Amsterdam
+-false Europe/Andorra
+-false Europe/Astrakhan
+-false Europe/Athens
+-false Europe/Belfast
+-false Europe/Belgrade
+-false Europe/Berlin
+-false Europe/Bratislava
+-false Europe/Brussels
+-false Europe/Bucharest
+-false Europe/Budapest
+-false Europe/Busingen
+-false Europe/Chisinau
+-false Europe/Copenhagen
+-true Europe/Dublin
+-false Europe/Gibraltar
+-false Europe/Guernsey
+-false Europe/Helsinki
+-false Europe/Isle_of_Man
+-false Europe/Istanbul
+-false Europe/Jersey
+-false Europe/Kaliningrad
+-false Europe/Kirov
+-false Europe/Kyiv
+-false Europe/Lisbon
+-false Europe/Ljubljana
+-false Europe/London
+-false Europe/Luxembourg
+-false Europe/Madrid
+-false Europe/Malta
+-false Europe/Mariehamn
+-false Europe/Minsk
+-false Europe/Monaco
+-false Europe/Moscow
+-false Europe/Nicosia
+-false Europe/Oslo
+-false Europe/Paris
+-false Europe/Podgorica
+-false Europe/Prague
+-false Europe/Riga
+-false Europe/Rome
+-false Europe/Samara
+-false Europe/San_Marino
+-false Europe/Sarajevo
+-false Europe/Saratov
+-false Europe/Simferopol
+-false Europe/Skopje
+-false Europe/Sofia
+-false Europe/Stockholm
+-false Europe/Tallinn
+-false Europe/Tirane
+-false Europe/Tiraspol
+-false Europe/Ulyanovsk
+-false Europe/Vaduz
+-false Europe/Vatican
+-false Europe/Vienna
+-false Europe/Vilnius
+-false Europe/Volgograd
+-false Europe/Warsaw
+-false Europe/Zagreb
+-false Europe/Zurich
+-false FET
+-true FJST
+-false FJT
+-false FKST
+-false FKT
+-true FNST
+-false FNT
+-false Factory
+-false GALT
+-false GAMT
+-false GEST
+-false GET
+-false GFT
+-false GILT
+-false GMT
+-false GYT
+-false HKT
+-false HST
+-false ICT
+-true IDT
+-false IOT
+-false IRKST
+-false IRKT
+-false IRT
+-false IST
+-false Indian/Antananarivo
+-false Indian/Chagos
+-false Indian/Christmas
+-false Indian/Cocos
+-false Indian/Comoro
+-false Indian/Kerguelen
+-false Indian/Mahe
+-false Indian/Maldives
+-false Indian/Mauritius
+-false Indian/Mayotte
+-false Indian/Reunion
+-false JAYT
+-false JST
+-true KDT
+-true KGST
+-false KGT
+-false KOST
+-false KRAST
+-false KRAT
+-false KST
+-true LHDT
+-false LHST
+-false LIGT
+-false LINT
+-false LKT
+-false MAGST
+-false MAGT
+-false MART
+-false MAWT
+-true MDT
+-true MEST
+-true MESZ
+-false MET
+-true METDST
+-false MEZ
+-false MHT
+-false MMT
+-false MPT
+-true MSD
+-false MSK
+-false MST
+-true MST7MDT
+-true MUST
+-false MUT
+-false MVT
+-false MYT
+-true NDT
+-false NFT
+-false NOVST
+-false NOVT
+-false NPT
+-false NST
+-false NUT
+-true NZDT
+-false NZST
+-false NZT
+-false OMSST
+-false OMST
+-true PDT
+-false PET
+-false PETST
+-false PETT
+-false PGT
+-false PHT
+-true PKST
+-false PKT
+-true PMDT
+-false PMST
+-false PONT
+-false PST
+-true PST8PDT
+-false PWT
+-true PYST
+-true PYT
+-false Pacific/Apia
+-true Pacific/Auckland
+-false Pacific/Bougainville
+-true Pacific/Chatham
+-false Pacific/Chuuk
+-true Pacific/Easter
+-false Pacific/Efate
+-false Pacific/Fakaofo
+-false Pacific/Fiji
+-false Pacific/Funafuti
+-false Pacific/Galapagos
+-false Pacific/Gambier
+-false Pacific/Guadalcanal
+-false Pacific/Guam
+-false Pacific/Honolulu
+-false Pacific/Johnston
+-false Pacific/Kanton
+-false Pacific/Kiritimati
+-false Pacific/Kosrae
+-false Pacific/Kwajalein
+-false Pacific/Majuro
+-false Pacific/Marquesas
+-false Pacific/Midway
+-false Pacific/Nauru
+-false Pacific/Niue
+-true Pacific/Norfolk
+-false Pacific/Noumea
+-false Pacific/Pago_Pago
+-false Pacific/Palau
+-false Pacific/Pitcairn
+-false Pacific/Pohnpei
+-false Pacific/Port_Moresby
+-false Pacific/Rarotonga
+-false Pacific/Saipan
+-false Pacific/Samoa
+-false Pacific/Tahiti
+-false Pacific/Tarawa
+-false Pacific/Tongatapu
+-false Pacific/Wake
+-false Pacific/Wallis
+-false Pacific/Yap
+-false RET
+-true SADT
+-false SAST
+-false SCT
+-false SGT
+-false TAHT
+-false TFT
+-false TJT
+-false TKT
+-false TMT
+-false TOT
+-false TRUT
+-false TVT
+-false UCT
+-true ULAST
+-false ULAT
+-false UT
+-false UTC
+-true UYST
+-false UYT
+-true UZST
+-false UZT
+-false VET
+-false VLAST
+-false VLAT
+-false VOLT
+-false VUT
+-true WADT
+-false WAKT
+-false WAST
+-false WAT
+-true WDT
+-false WET
+-true WETDST
+-false WFT
+-true WGST
+-false WGT
+-false XJT
+-false YAKST
+-false YAKT
+-false YAPT
+-true YEKST
+-false YEKT
+-false Z
+-false ZULU
+-false localtime
+-true posixrules
+-</TimeZones>
+-    </root>
+-    <database id="2" parent="1" name="coursesportal">
+-      <ObjectId>32805</ObjectId>
+-      <OwnerName>postgres</OwnerName>
+-    </database>
+-    <database id="3" parent="1" name="postgres">
+-      <Comment>default administrative connection database</Comment>
+-      <Current>1</Current>
+-      <Grants>11||10|C|G
+-11||-9223372036854775808|U|G
+-11||10|U|G
+-2200||6171|C|G
+-2200||-9223372036854775808|U|G
+-2200||6171|U|G
+-13292||10|C|G
+-13292||-9223372036854775808|U|G
+-13292||10|U|G</Grants>
+-      <IntrospectionStateNumber>837</IntrospectionStateNumber>
+-      <ObjectId>5</ObjectId>
+-      <OwnerName>postgres</OwnerName>
+-    </database>
+-    <database id="4" parent="1" name="yaroslavesev">
+-      <ObjectId>24576</ObjectId>
+-      <OwnerName>postgres</OwnerName>
+-    </database>
+-    <role id="5" parent="1" name="pg_checkpoint">
+-      <ObjectId>4544</ObjectId>
+-    </role>
+-    <role id="6" parent="1" name="pg_create_subscription">
+-      <ObjectId>6304</ObjectId>
+-    </role>
+-    <role id="7" parent="1" name="pg_database_owner">
+-      <ObjectId>6171</ObjectId>
+-    </role>
+-    <role id="8" parent="1" name="pg_execute_server_program">
+-      <ObjectId>4571</ObjectId>
+-    </role>
+-    <role id="9" parent="1" name="pg_monitor">
+-      <ObjectId>3373</ObjectId>
+-      <RoleGrants>3374
+-3375
+-3377</RoleGrants>
+-    </role>
+-    <role id="10" parent="1" name="pg_read_all_data">
+-      <ObjectId>6181</ObjectId>
+-    </role>
+-    <role id="11" parent="1" name="pg_read_all_settings">
+-      <ObjectId>3374</ObjectId>
+-    </role>
+-    <role id="12" parent="1" name="pg_read_all_stats">
+-      <ObjectId>3375</ObjectId>
+-    </role>
+-    <role id="13" parent="1" name="pg_read_server_files">
+-      <ObjectId>4569</ObjectId>
+-    </role>
+-    <role id="14" parent="1" name="pg_signal_backend">
+-      <ObjectId>4200</ObjectId>
+-    </role>
+-    <role id="15" parent="1" name="pg_stat_scan_tables">
+-      <ObjectId>3377</ObjectId>
+-    </role>
+-    <role id="16" parent="1" name="pg_use_reserved_connections">
+-      <ObjectId>4550</ObjectId>
+-    </role>
+-    <role id="17" parent="1" name="pg_write_all_data">
+-      <ObjectId>6182</ObjectId>
+-    </role>
+-    <role id="18" parent="1" name="pg_write_server_files">
+-      <ObjectId>4570</ObjectId>
+-    </role>
+-    <role id="19" parent="1" name="postgres">
+-      <BypassRls>1</BypassRls>
+-      <CanLogin>1</CanLogin>
+-      <CreateDb>1</CreateDb>
+-      <CreateRole>1</CreateRole>
+-      <ObjectId>10</ObjectId>
+-      <Replication>1</Replication>
+-      <SuperRole>1</SuperRole>
+-    </role>
+-    <tablespace id="20" parent="1" name="pg_default">
+-      <ObjectId>1663</ObjectId>
+-      <StateNumber>1</StateNumber>
+-      <OwnerName>postgres</OwnerName>
+-    </tablespace>
+-    <tablespace id="21" parent="1" name="pg_global">
+-      <ObjectId>1664</ObjectId>
+-      <StateNumber>1</StateNumber>
+-      <OwnerName>postgres</OwnerName>
+-    </tablespace>
+-    <schema id="22" parent="3" name="information_schema">
+-      <ObjectId>13292</ObjectId>
+-      <StateNumber>529</StateNumber>
+-      <OwnerName>postgres</OwnerName>
+-    </schema>
+-    <schema id="23" parent="3" name="pg_catalog">
+-      <Comment>system catalog schema</Comment>
+-      <ObjectId>11</ObjectId>
+-      <StateNumber>523</StateNumber>
+-      <OwnerName>postgres</OwnerName>
+-    </schema>
+-    <schema id="24" parent="3" name="public">
+-      <Comment>standard public schema</Comment>
+-      <Current>1</Current>
+-      <IntrospectionStateNumber>837</IntrospectionStateNumber>
+-      <LastIntrospectionLocalTimestamp>2024-10-31.09:24:56</LastIntrospectionLocalTimestamp>
+-      <ObjectId>2200</ObjectId>
+-      <StateNumber>523</StateNumber>
+-      <OwnerName>pg_database_owner</OwnerName>
+-    </schema>
+-    <sequence id="25" parent="24" name="company_id_seq">
+-      <ObjectId>32779</ObjectId>
+-      <SequenceIdentity>1</SequenceIdentity>
+-      <StartValue>1</StartValue>
+-      <StateNumber>765</StateNumber>
+-      <StoredType>integer|0s</StoredType>
+-      <OwnerName>postgres</OwnerName>
+-    </sequence>
+-    <sequence id="26" parent="24" name="users_id_seq">
+-      <ObjectId>32788</ObjectId>
+-      <SequenceIdentity>1</SequenceIdentity>
+-      <StartValue>1</StartValue>
+-      <StateNumber>767</StateNumber>
+-      <StoredType>bigint|0s</StoredType>
+-      <OwnerName>postgres</OwnerName>
+-    </sequence>
+-    <table id="27" parent="24" name="company">
+-      <ObjectId>32780</ObjectId>
+-      <StateNumber>767</StateNumber>
+-      <AccessMethodId>2</AccessMethodId>
+-      <OwnerName>postgres</OwnerName>
+-    </table>
+-    <table id="28" parent="24" name="users">
+-      <ObjectId>32789</ObjectId>
+-      <StateNumber>770</StateNumber>
+-      <AccessMethodId>2</AccessMethodId>
+-      <OwnerName>postgres</OwnerName>
+-    </table>
+-    <column id="29" parent="27" name="id">
+-      <DefaultExpression>nextval(&apos;company_id_seq&apos;::regclass)</DefaultExpression>
+-      <NotNull>1</NotNull>
+-      <Position>1</Position>
+-      <StateNumber>765</StateNumber>
+-      <StoredType>integer|0s</StoredType>
+-      <SequenceId>32779</SequenceId>
+-      <TypeId>23</TypeId>
+-    </column>
+-    <column id="30" parent="27" name="name">
+-      <NotNull>1</NotNull>
+-      <Position>2</Position>
+-      <StateNumber>765</StateNumber>
+-      <StoredType>varchar(64)|0s</StoredType>
+-      <TypeId>1043</TypeId>
+-    </column>
+-    <index id="31" parent="27" name="company_pkey">
+-      <ColNames>id</ColNames>
+-      <NameSurrogate>1</NameSurrogate>
+-      <ObjectId>32784</ObjectId>
+-      <Primary>1</Primary>
+-      <StateNumber>765</StateNumber>
+-      <Unique>1</Unique>
+-      <AccessMethodId>403</AccessMethodId>
+-    </index>
+-    <index id="32" parent="27" name="company_name_key">
+-      <ColNames>name</ColNames>
+-      <NameSurrogate>1</NameSurrogate>
+-      <ObjectId>32786</ObjectId>
+-      <StateNumber>765</StateNumber>
+-      <Unique>1</Unique>
+-      <AccessMethodId>403</AccessMethodId>
+-      <CollationNames>default</CollationNames>
+-      <CollationIds>100</CollationIds>
+-      <CollationParentNames>pg_catalog</CollationParentNames>
+-    </index>
+-    <key id="33" parent="27" name="company_pkey">
+-      <NameSurrogate>1</NameSurrogate>
+-      <ObjectId>32785</ObjectId>
+-      <Primary>1</Primary>
+-      <StateNumber>765</StateNumber>
+-      <UnderlyingIndexId>32784</UnderlyingIndexId>
+-    </key>
+-    <key id="34" parent="27" name="company_name_key">
+-      <NameSurrogate>1</NameSurrogate>
+-      <ObjectId>32787</ObjectId>
+-      <StateNumber>765</StateNumber>
+-      <UnderlyingIndexId>32786</UnderlyingIndexId>
+-    </key>
+-    <column id="35" parent="28" name="id">
+-      <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
+-      <NotNull>1</NotNull>
+-      <Position>1</Position>
+-      <StateNumber>767</StateNumber>
+-      <StoredType>bigint|0s</StoredType>
+-      <SequenceId>32788</SequenceId>
+-      <TypeId>20</TypeId>
+-    </column>
+-    <column id="36" parent="28" name="username">
+-      <Position>2</Position>
+-      <StateNumber>767</StateNumber>
+-      <StoredType>varchar(128)|0s</StoredType>
+-      <TypeId>1043</TypeId>
+-    </column>
+-    <column id="37" parent="28" name="firstname">
+-      <Position>3</Position>
+-      <StateNumber>767</StateNumber>
+-      <StoredType>varchar(128)|0s</StoredType>
+-      <TypeId>1043</TypeId>
+-    </column>
+-    <column id="38" parent="28" name="lastname">
+-      <Position>4</Position>
+-      <StateNumber>767</StateNumber>
+-      <StoredType>varchar(128)|0s</StoredType>
+-      <TypeId>1043</TypeId>
+-    </column>
+-    <column id="39" parent="28" name="birth_date">
+-      <Position>5</Position>
+-      <StateNumber>767</StateNumber>
+-      <StoredType>date|0s</StoredType>
+-      <TypeId>1082</TypeId>
+-    </column>
+-    <column id="40" parent="28" name="age">
+-      <Position>6</Position>
+-      <StateNumber>767</StateNumber>
+-      <StoredType>integer|0s</StoredType>
+-      <TypeId>23</TypeId>
+-    </column>
+-    <column id="41" parent="28" name="role">
+-      <Position>7</Position>
+-      <StateNumber>767</StateNumber>
+-      <StoredType>varchar(32)|0s</StoredType>
+-      <TypeId>1043</TypeId>
+-    </column>
+-    <column id="42" parent="28" name="company_id">
+-      <Position>8</Position>
+-      <StateNumber>767</StateNumber>
+-      <StoredType>integer|0s</StoredType>
+-      <TypeId>23</TypeId>
+-    </column>
+-    <foreign-key id="43" parent="28" name="users_company_id_fkey">
+-      <ColNames>company_id</ColNames>
+-      <NameSurrogate>1</NameSurrogate>
+-      <ObjectId>32797</ObjectId>
+-      <StateNumber>767</StateNumber>
+-      <RefKeyColPositions>1</RefKeyColPositions>
+-      <RefTableId>32780</RefTableId>
+-    </foreign-key>
+-    <index id="44" parent="28" name="users_pkey">
+-      <ColNames>id</ColNames>
+-      <NameSurrogate>1</NameSurrogate>
+-      <ObjectId>32793</ObjectId>
+-      <Primary>1</Primary>
+-      <StateNumber>770</StateNumber>
+-      <Unique>1</Unique>
+-      <AccessMethodId>403</AccessMethodId>
+-    </index>
+-    <index id="45" parent="28" name="users_username_key">
+-      <ColNames>username</ColNames>
+-      <NameSurrogate>1</NameSurrogate>
+-      <ObjectId>32795</ObjectId>
+-      <StateNumber>770</StateNumber>
+-      <Unique>1</Unique>
+-      <AccessMethodId>403</AccessMethodId>
+-      <CollationNames>default</CollationNames>
+-      <CollationIds>100</CollationIds>
+-      <CollationParentNames>pg_catalog</CollationParentNames>
+-    </index>
+-    <key id="46" parent="28" name="users_pkey">
+-      <NameSurrogate>1</NameSurrogate>
+-      <ObjectId>32794</ObjectId>
+-      <Primary>1</Primary>
+-      <StateNumber>767</StateNumber>
+-      <UnderlyingIndexId>32793</UnderlyingIndexId>
+-    </key>
+-    <key id="47" parent="28" name="users_username_key">
+-      <NameSurrogate>1</NameSurrogate>
+-      <ObjectId>32796</ObjectId>
+-      <StateNumber>767</StateNumber>
+-      <UnderlyingIndexId>32795</UnderlyingIndexId>
+-    </key>
+-  </database-model>
+-</dataSource>
+\ No newline at end of file
+Index: Server/src/main/java/by/titanic/server/services/ProposalService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package by.titanic.server.services;\n\nimport by.titanic.server.models.Proposal;\nimport by.titanic.server.repositories.ProposalRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Service;\n\nimport java.util.List;\n\n@Service\npublic class ProposalService {\n\n    @Autowired\n    private ProposalRepository proposalRepository;\n\n    public List<Proposal> getAllProposals() {\n        return proposalRepository.findAll();\n    }\n\n    public Proposal createProposal(Proposal proposal) {\n        return proposalRepository.save(proposal);\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/services/ProposalService.java b/Server/src/main/java/by/titanic/server/services/ProposalService.java
+--- a/Server/src/main/java/by/titanic/server/services/ProposalService.java	(revision fd7069268d2e4ffe8e75badcd5c57a8d681c01db)
++++ b/Server/src/main/java/by/titanic/server/services/ProposalService.java	(date 1730997837507)
+@@ -20,5 +20,8 @@
+     public Proposal createProposal(Proposal proposal) {
+         return proposalRepository.save(proposal);
+     }
++    public Proposal getProposalById(Integer id) {
++        return proposalRepository.findById(id).orElse(null);
++    }
+ }
+ 
+Index: Server/src/main/java/by/titanic/server/repositories/OrganizationRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package by.titanic.server.repositories;\n\nimport by.titanic.server.models.Organization;\nimport org.springframework.data.jpa.repository.JpaRepository;\n\npublic interface OrganizationRepository extends JpaRepository<Organization, Integer> {\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/repositories/OrganizationRepository.java b/Server/src/main/java/by/titanic/server/repositories/OrganizationRepository.java
+--- a/Server/src/main/java/by/titanic/server/repositories/OrganizationRepository.java	(revision fd7069268d2e4ffe8e75badcd5c57a8d681c01db)
++++ b/Server/src/main/java/by/titanic/server/repositories/OrganizationRepository.java	(date 1730997837506)
+@@ -2,7 +2,11 @@
+ 
+ import by.titanic.server.models.Organization;
+ import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.data.jpa.repository.Query;
+ 
+ public interface OrganizationRepository extends JpaRepository<Organization, Integer> {
++    @Query("SELECT el FROM Organization el WHERE el.name = :name")
++    Organization findOrganizationByName(String name);
+ }
+ 
++
+Index: Server/src/main/java/by/titanic/server/repositories/ProposalRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package by.titanic.server.repositories;\n\nimport by.titanic.server.models.Proposal;\nimport org.springframework.data.jpa.repository.JpaRepository;\n\npublic interface ProposalRepository extends JpaRepository<Proposal, Integer> {\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/repositories/ProposalRepository.java b/Server/src/main/java/by/titanic/server/repositories/ProposalRepository.java
+--- a/Server/src/main/java/by/titanic/server/repositories/ProposalRepository.java	(revision fd7069268d2e4ffe8e75badcd5c57a8d681c01db)
++++ b/Server/src/main/java/by/titanic/server/repositories/ProposalRepository.java	(date 1730997837506)
+@@ -1,8 +1,16 @@
+ package by.titanic.server.repositories;
+ 
++import by.titanic.server.models.OrganizationLinks;
+ import by.titanic.server.models.Proposal;
+ import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.data.jpa.repository.Query;
++import org.springframework.data.repository.query.Param;
++
++import java.util.List;
+ 
+ public interface ProposalRepository extends JpaRepository<Proposal, Integer> {
++    @Query("SELECT el FROM Proposal el WHERE el.organization.id = :organizationId")
++    List<Proposal> findAllByOrganizationId(@Param("organizationId") Integer organizationId);
+ }
+ 
++
+Index: Frontend/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Frontend/style.css b/Frontend/style.css
+new file mode 100644
+--- /dev/null	(date 1730997837505)
++++ b/Frontend/style.css	(date 1730997837505)
+@@ -0,0 +1,123 @@
++header{
++    margin: 5px;
++    display: flex;
++    justify-content: space-between;
++    font-size: 24px;
++}
++
++.go3974562317{
++    background-color: black !important;
++    box-shadow: 3px 4px 0 rgba(255, 255, 255, 1) !important;
++    border-radius: 0px !important;
++}
++body{
++    height: 100vh;
++    margin: 0;
++    background-image: url("imgs/background.png");
++    font-family: 'Inter', sans-serif;
++    display: flex;
++    flex-direction: column;
++    justify-content: space-between;
++}
++#search-input{
++    border: none;
++    border-radius: 5px;
++    height: 30px;
++    width: 210px;
++}
++#search-input:focus{
++    border: none;
++    outline: none;
++}
++#search-submit{
++    background-image: url("imgs/lupa.png");
++    background-size: 90%;
++    /*
++    font-size: 18px; /* Размер значка */
++    border: none;
++    border-radius: 5px;
++    cursor: pointer;
++    outline: none;
++    /* background: white; */
++    height: 30px;
++    width: 30px;
++}
++footer{
++    display: flex;
++    justify-content: flex-end;
++}
++#network-container{
++    display: flex;
++    justify-content: space-around;
++    width: 20%;
++    font-size: 24px;
++}
++#network-container a img{
++    height: 60px;
++    width: 60px;
++}
++.members-count{
++    font-size: 12px;
++    color: darkgrey;
++}
++.dao-profile{
++    display: flex;
++    flex-direction: column;
++    justify-content: center;
++    align-items: center;
++    border: 1px solid black;
++    border-radius: 10px;
++    padding: 5px;
++    box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.6);
++}
++#search-container{
++    margin-top: 5px;
++    display: inherit;
++    border-radius: 5px;
++    border: 1px solid black;
++    background-color: white;
++}
++.dao-profile img{
++    height: 50px;
++    width: 50px;
++    border-radius: 10px;
++}
++#content{
++    display: flex;
++    justify-content: space-between;
++    width: 80%;
++    background-color: white;
++    box-shadow: 5px 8px 0 rgba(0,0,0, 0.7);
++}
++#info-container{
++    display: flex;
++    flex-direction: column;
++    justify-content: space-between;
++}
++#button-container{
++    display: flex;
++    flex-direction: column;
++    justify-content: space-between;
++    margin-top: 50px;
++    margin-bottom: 50px;
++}
++#button-container > button{
++    margin: 30px;
++    border: 1px solid black;
++    background-color: white;
++    box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.6);
++    font-size: large;
++    height: 50px;
++    width: 150px;
++}
++#spaces-profiles-container{
++    margin: 10px;
++    display: grid;
++    grid-template-columns: repeat(4, 200px);
++    grid-template-rows: repeat(4,100px);
++    gap: 20px;
++}
++#search-form{
++    display: flex;
++    justify-content: center;
++}
+\ No newline at end of file
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+new file mode 100644
+--- /dev/null	(date 1730997837505)
++++ b/README.md	(date 1730997837505)
+@@ -0,0 +1,1 @@
++There can be your advertising! Connect with us in [Titanic](https://t.me/titanic_ton)
+\ No newline at end of file
+Index: Frontend/app.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Frontend/app.js b/Frontend/app.js
+new file mode 100644
+--- /dev/null	(date 1730997837492)
++++ b/Frontend/app.js	(date 1730997837492)
+@@ -0,0 +1,21 @@
++window.addEventListener('load', () => {
++    let daoProfilesContainer = document.getElementById('spaces-profiles-container');
++
++    for(let i = 0; i<16; i++){
++        const daoProfile = document.createElement('div');
++        daoProfile.classList.add('dao-profile')
++        daoProfile.innerHTML = `
++            <img src="https://cdn.stamp.fyi/space/s:aave.eth?s=164&cb=306a665387fde471"/>
++            <p class='members-count'>151K members</p>
++            <button>Join</button>
++        `;
++        daoProfilesContainer.appendChild(daoProfile);
++    }
++    const tc_widgets = document.createElement('tc-widget-root');
++    const inner_tc_widgets = tc_widgets.innerHTML;
++
++    const useless_widgets = document.getElementById('useless-widgets');
++    useless_widgets.innerHTML = inner_tc_widgets;
++    
++    tc_widgets.remove();
++});
+\ No newline at end of file
+Index: Frontend/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Frontend/index.html b/Frontend/index.html
+new file mode 100644
+--- /dev/null	(date 1730997837505)
++++ b/Frontend/index.html	(date 1730997837505)
+@@ -0,0 +1,54 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Titanic</title>
++    <link rel="stylesheet" href="style.css">
++    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
++    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
++</head>
++<body>
++    <header>
++        <p id="titanic-header">Titanic DAO</p>
++        <div id="ton-connect"></div>
++        <script>
++            const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
++                manifestUrl: 'https://<YOUR_APP_URL>/tonconnect-manifest.json',
++                buttonRootId: 'ton-connect'
++            });
++        </script>
++    </header>
++    <main>
++        <div id="content">
++            <div id="button-container">
++                <button id="get-all-button">Spaces</button>
++                <button id="joined-button">Joined</button>
++                <button id="create-new-button">Create</button>
++                <button id="my-dao-button">My DAO</button>
++            </div>
++            <div id="info-container">
++                <form method="get" action="example" id="search-form">   <!--Форма для поиска по имени проекта, обрати внимание, что action не заполнен!!!-->
++                    <div id="search-container">
++                        <input type="submit" value=" " id="search-submit"> 
++                            
++                        </input>
++                        <input type="text" id="search-input">
++                    </div>
++                </form>
++                <div id="spaces-profiles-container"></div>
++                <!--Надо сделать пагинацию!!!!!-->
++            </div>
++        </div>
++    </main>
++    <div id="useless-widgets"></div>
++    <footer>
++        <div id="network-container">
++            <p id="network-accs-label">Subscribe</p>
++            <a id="tg-link" href="index.html"><img src="https://img.icons8.com/?size=100&id=F4ZPUh2Mk5tk&format=png&color=000000"/></a>
++            <a id="twitter-link" href="index.html"><img src="https://img.icons8.com/?size=100&id=phOKFKYpe00C&format=png&color=000000"/></a>
++        </div>
++    </footer>
++    <script src="app.js"></script>
++</body>
++</html>
+\ No newline at end of file
+Index: Server/src/main/java/by/titanic/server/services/OrganizationProfileService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/services/OrganizationProfileService.java b/Server/src/main/java/by/titanic/server/services/OrganizationProfileService.java
+new file mode 100644
+--- /dev/null	(date 1730997837506)
++++ b/Server/src/main/java/by/titanic/server/services/OrganizationProfileService.java	(date 1730997837506)
+@@ -0,0 +1,44 @@
++package by.titanic.server.services;
++
++import by.titanic.server.DTO.OrganizationProfileDTO;
++import by.titanic.server.DTO.ProposalDTO;
++import by.titanic.server.models.Organization;
++import by.titanic.server.models.OrganizationLinks;
++import by.titanic.server.models.Proposal;
++import by.titanic.server.repositories.OrganizationLinksRepository;
++import by.titanic.server.repositories.OrganizationRepository;
++import by.titanic.server.repositories.ProposalRepository;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Service;
++
++import java.util.ArrayList;
++import java.util.List;
++
++/**
++ * Класс, расширяющий OrganizationController, чтобы обработать логику отправки данных для страницы конкретной организации
++ */
++@Service
++public class OrganizationProfileService {
++    @Autowired
++    private OrganizationRepository organizationRepository;
++
++    @Autowired
++    private OrganizationLinksRepository organizationLinksRepository;
++
++    @Autowired
++    private ProposalRepository proposalRepository;
++
++
++    public OrganizationProfileDTO showProfile(String name) {
++        Organization organization = organizationRepository.findOrganizationByName(name);
++        OrganizationLinks organizationLinks = organizationLinksRepository.findByOrganizationId(organization.getId());
++        List<Proposal> proposals = proposalRepository.findAllByOrganizationId(organization.getId());
++        List<ProposalDTO> proposalDTOList = new ArrayList<>();
++        for (Proposal proposal : proposals) {
++            ProposalDTO proposalDTO = new ProposalDTO(proposal.getId(), proposal.getTopic(), proposal.getStatus(), proposal.getMapOfOptions());
++            proposalDTOList.add(proposalDTO);
++        }
++        return new OrganizationProfileDTO(organization.getName(), proposalDTOList, organizationLinks.getGithub(), organizationLinks.getX(), organizationLinks.getTelegram());
++    }
++
++}
+Index: Server/src/main/java/by/titanic/server/services/ProposalProfileService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/services/ProposalProfileService.java b/Server/src/main/java/by/titanic/server/services/ProposalProfileService.java
+new file mode 100644
+--- /dev/null	(date 1730997837507)
++++ b/Server/src/main/java/by/titanic/server/services/ProposalProfileService.java	(date 1730997837507)
+@@ -0,0 +1,24 @@
++package by.titanic.server.services;
++
++import by.titanic.server.DTO.ProposalInfoDTO;
++import by.titanic.server.models.ProposalInfo;
++import by.titanic.server.repositories.ProposalInfoRepository;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Service;
++
++/**
++ * Класс, расширяющий ProposalController, чтобы передать данные для станицы конкретного предложения
++ */
++
++@Service
++public class ProposalProfileService {
++    @Autowired
++    ProposalInfoRepository proposalInfoRepository;
++
++    public ProposalInfoDTO showProposalProfile(Long id) {
++        ProposalInfo proposalInfo = proposalInfoRepository.findByProposalId(id);
++        return new ProposalInfoDTO(proposalInfo.getFirstOptionAmount(), proposalInfo.getSecondOptionAmount(), proposalInfo.getThirdOptionAmount(),
++                proposalInfo.getStartDate(), proposalInfo.getEndDate(), proposalInfo.getDescription());
++
++    }
++}
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"DataSourceManagerImpl\" format=\"xml\" multifile-model=\"true\">\n    <data-source source=\"LOCAL\" name=\"postgres@localhost\" uuid=\"c596ce74-3e7c-492c-9182-fb4200cd10f6\">\n      <driver-ref>postgresql</driver-ref>\n      <synchronize>true</synchronize>\n      <jdbc-driver>org.postgresql.Driver</jdbc-driver>\n      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>\n      <jdbc-additional-properties>\n        <property name=\"com.intellij.clouds.kubernetes.db.host.port\" />\n        <property name=\"com.intellij.clouds.kubernetes.db.enabled\" value=\"false\" />\n        <property name=\"com.intellij.clouds.kubernetes.db.container.port\" />\n      </jdbc-additional-properties>\n      <working-dir>$ProjectFileDir$</working-dir>\n    </data-source>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.xml b/.idea/dataSources.xml
+--- a/.idea/dataSources.xml	(revision fd7069268d2e4ffe8e75badcd5c57a8d681c01db)
++++ b/.idea/dataSources.xml	(date 1730997837492)
+@@ -1,11 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+-    <data-source source="LOCAL" name="postgres@localhost" uuid="c596ce74-3e7c-492c-9182-fb4200cd10f6">
++    <data-source source="LOCAL" name="titanic@62.60.159.0" uuid="d42104c0-f0a4-445e-b1c3-73a542325640">
+       <driver-ref>postgresql</driver-ref>
+       <synchronize>true</synchronize>
+       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+-      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
++      <jdbc-url>jdbc:postgresql://62.60.159.0:5432/titanic</jdbc-url>
+       <jdbc-additional-properties>
+         <property name="com.intellij.clouds.kubernetes.db.host.port" />
+         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+Index: .idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"dataSourceStorageLocal\" created-in=\"IU-242.23726.103\">\n    <data-source name=\"postgres@localhost\" uuid=\"c596ce74-3e7c-492c-9182-fb4200cd10f6\">\n      <database-info product=\"PostgreSQL\" version=\"16.4 (Ubuntu 16.4-0ubuntu0.24.04.2)\" jdbc-version=\"4.2\" driver-name=\"PostgreSQL JDBC Driver\" driver-version=\"42.6.0\" dbms=\"POSTGRES\" exact-version=\"16.4\" exact-driver-version=\"42.6\">\n        <identifier-quote-string>&quot;</identifier-quote-string>\n      </database-info>\n      <case-sensitivity plain-identifiers=\"lower\" quoted-identifiers=\"exact\" />\n      <secret-storage>master_key</secret-storage>\n      <user-name>postgres</user-name>\n      <schema-mapping>\n        <introspection-scope>\n          <node kind=\"database\" qname=\"@\">\n            <node kind=\"schema\" qname=\"@\" />\n          </node>\n        </introspection-scope>\n      </schema-mapping>\n    </data-source>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.local.xml b/.idea/dataSources.local.xml
+--- a/.idea/dataSources.local.xml	(revision fd7069268d2e4ffe8e75badcd5c57a8d681c01db)
++++ b/.idea/dataSources.local.xml	(date 1730998115322)
+@@ -1,13 +1,13 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="dataSourceStorageLocal" created-in="IU-242.23726.103">
+-    <data-source name="postgres@localhost" uuid="c596ce74-3e7c-492c-9182-fb4200cd10f6">
+-      <database-info product="PostgreSQL" version="16.4 (Ubuntu 16.4-0ubuntu0.24.04.2)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="16.4" exact-driver-version="42.6">
++    <data-source name="titanic@62.60.159.0" uuid="d42104c0-f0a4-445e-b1c3-73a542325640">
++      <database-info product="PostgreSQL" version="15.8 (Debian 15.8-0+deb12u1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="15.8" exact-driver-version="42.6">
+         <identifier-quote-string>&quot;</identifier-quote-string>
+       </database-info>
+       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+       <secret-storage>master_key</secret-storage>
+-      <user-name>postgres</user-name>
++      <user-name>weebat</user-name>
+       <schema-mapping>
+         <introspection-scope>
+           <node kind="database" qname="@">
+Index: Server/src/main/resources/templates/profile.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/resources/templates/profile.html b/Server/src/main/resources/templates/profile.html
+new file mode 100644
+--- /dev/null	(date 1730997837507)
++++ b/Server/src/main/resources/templates/profile.html	(date 1730997837507)
+@@ -0,0 +1,37 @@
++<!--<!DOCTYPE html>-->
++<!--<html xmlns:th="http://www.thymeleaf.org">-->
++<!--<head>-->
++<!--    <title>Profile Page</title>-->
++<!--    <link rel="stylesheet" href="/static/css/Profile.css">-->
++<!--</head>-->
++<!--<body>-->
++<!--<div class="profile">-->
++<!--    <section class = "staticPart">-->
++<!--        <section class = "intro">-->
++<!--            <img th:src="@{/images/avatar.jpg}" alt="Avatar" id="avatar">-->
++
++<!--            <div class="social-links">-->
++<!--                <a th:href="${profile.twitterUrl}" target="_blank">Twitter</a>-->
++<!--                <a th:href="${profile.linkedinUrl}" target="_blank">LinkedIn</a>-->
++<!--                <a th:href="${profile.githubUrl}" target="_blank">GitHub</a>-->
++<!--            </div>-->
++<!--        </section>-->
++
++<!--        <button class="bookMarks" data-url = "/proposals">Proposals</button>-->
++<!--        <button class="bookMarks" data-url = "/about">About</button>-->
++
++<!--    </section>-->
++<!--    <section class = "dynamicContent">-->
++<!--        <div id = "proposals">-->
++<!--            <p th:text="${proposal}"></p>-->
++<!--        </div>-->
++<!--        <div id = "about">-->
++<!--            <p th:text="${information}"></p>-->
++<!--        </div>-->
++
++<!--    </section>-->
++
++<!--</div>-->
++<!--</body>-->
++<!--</html>-->
++Тут я ещё надеялся на то, что нам подойдёт Thymeleaf, но в итоге мы работаем со строками json, которые нам возвращают контроллеры, поэтому это //TODO
+\ No newline at end of file
+Index: Server/src/main/resources/static/css/Profile.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/resources/static/css/Profile.css b/Server/src/main/resources/static/css/Profile.css
+new file mode 100644
+--- /dev/null	(date 1730997837507)
++++ b/Server/src/main/resources/static/css/Profile.css	(date 1730997837507)
+@@ -0,0 +1,41 @@
++/*.profile {*/
++/*    text-align: center;*/
++/*    padding: 20px;*/
++/*    position: relative;*/
++/*    width: 80%;*/
++/*}*/
++
++/*.staticPart{*/
++/*    position: absolute;*/
++/*    top: 5%;*/
++/*    left: 5%;*/
++/*    display: flex;*/
++/*    flex-direction: column;*/
++/*}*/
++
++/*#avatar {*/
++/*    width: 150px;*/
++/*    height: 150px;*/
++/*    border-radius: 50%;*/
++/*    margin-bottom: 20px;*/
++/*}*/
++
++/*.social-links{*/
++/*    gap: 15px;*/
++/*    display: flex;*/
++/*}*/
++
++/*.social-links a {*/
++/*    margin: 10px;*/
++/*    display: inline-block;*/
++/*    text-decoration: none;*/
++/*    color: #333;*/
++
++/*}*/
++
++/*.bookMarks {*/
++/*    display: flex;*/
++/*    gap: 15px;*/
++/*;*/
++/*}*/
++Туда же
+\ No newline at end of file
+Index: Server/src/main/java/by/titanic/server/repositories/OrganizationLinksRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/repositories/OrganizationLinksRepository.java b/Server/src/main/java/by/titanic/server/repositories/OrganizationLinksRepository.java
+new file mode 100644
+--- /dev/null	(date 1730997837506)
++++ b/Server/src/main/java/by/titanic/server/repositories/OrganizationLinksRepository.java	(date 1730997837506)
+@@ -0,0 +1,15 @@
++package by.titanic.server.repositories;
++
++import by.titanic.server.models.OrganizationLinks;
++import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.data.jpa.repository.Query;
++import org.springframework.data.repository.query.Param;
++
++/**
++ * Класс для работы с Линками организации - я не наркоман, я пытался централизовать,
++ * чтобы не нужно было создавать новые объекты, но это оказался самый рациональный вариант
++ */
++public interface OrganizationLinksRepository extends JpaRepository<OrganizationLinks, Integer> {
++    @Query("SELECT el FROM OrganizationLinks el WHERE el.organization.id = :organizationId")
++    OrganizationLinks findByOrganizationId(@Param("organizationId") Integer organizationId);
++}
+Index: Server/src/main/java/by/titanic/server/repositories/ProposalInfoRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/repositories/ProposalInfoRepository.java b/Server/src/main/java/by/titanic/server/repositories/ProposalInfoRepository.java
+new file mode 100644
+--- /dev/null	(date 1730997837506)
++++ b/Server/src/main/java/by/titanic/server/repositories/ProposalInfoRepository.java	(date 1730997837506)
+@@ -0,0 +1,12 @@
++package by.titanic.server.repositories;
++
++import by.titanic.server.models.ProposalInfo;
++import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.data.jpa.repository.Query;
++import org.springframework.data.repository.query.Param;
++
++//То же самое, как в случае с OrganizationLinksRepository
++public interface ProposalInfoRepository extends JpaRepository<ProposalInfo, Long> {
++    @Query("SELECT el FROM ProposalInfo el WHERE el.proposal.id = :id")
++    ProposalInfo findByProposalId(@Param("id") Long id);
++}
+Index: Server/src/main/java/by/titanic/server/DTO/OrganizationProfileDTO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/DTO/OrganizationProfileDTO.java b/Server/src/main/java/by/titanic/server/DTO/OrganizationProfileDTO.java
+new file mode 100644
+--- /dev/null	(date 1730997837506)
++++ b/Server/src/main/java/by/titanic/server/DTO/OrganizationProfileDTO.java	(date 1730997837506)
+@@ -0,0 +1,21 @@
++package by.titanic.server.DTO;
++
++import lombok.*;
++
++import java.util.List;
++/**
++ *DTO для преедачи информации, необходимой странице конкретной организации
++ */
++
++@Getter
++@Setter
++@AllArgsConstructor
++@NoArgsConstructor
++@Builder
++public class OrganizationProfileDTO {
++    private String nameOfOrganization;
++    private List<ProposalDTO> proposalDTOList;
++    private String githubLink;
++    private String xLink;
++    private String telegramLink;
++}
+Index: Server/src/main/java/by/titanic/server/DTO/ProposalInfoDTO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/DTO/ProposalInfoDTO.java b/Server/src/main/java/by/titanic/server/DTO/ProposalInfoDTO.java
+new file mode 100644
+--- /dev/null	(date 1730997837506)
++++ b/Server/src/main/java/by/titanic/server/DTO/ProposalInfoDTO.java	(date 1730997837506)
+@@ -0,0 +1,20 @@
++package by.titanic.server.DTO;
++
++import lombok.*;
++
++/**
++ * DTO для передачи информации странице конкретного предложения
++ */
++@Getter
++@Setter
++@AllArgsConstructor
++@NoArgsConstructor
++@Builder
++public class ProposalInfoDTO {
++    private Integer firstOptionAmount;
++    private Integer secondOptionAmount;
++    private Integer thirdOptionAmount;
++    private java.sql.Timestamp startDate;
++    private java.sql.Timestamp endDate;
++    private String description;
++}
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	(date 1730997837492)
++++ b/.idea/uiDesigner.xml	(date 1730997837492)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1730997837492)
++++ b/.idea/compiler.xml	(date 1730997837492)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Gradle Imported" enabled="true">
++        <outputRelativeToContentRoot value="true" />
++        <processorPath useClasspath="false">
++          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.34/ec547ef414ab1d2c040118fb9c1c265ada63af14/lombok-1.18.34.jar" />
++        </processorPath>
++        <module name="by.titanic.Server.main" />
++      </profile>
++    </annotationProcessing>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	(date 1730997837492)
++++ b/.idea/jarRepositories.xml	(date 1730997837492)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="MavenRepo" />
++      <option name="name" value="MavenRepo" />
++      <option name="url" value="https://repo.maven.apache.org/maven2/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/modules/by.titanic.Server.main.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules/by.titanic.Server.main.iml b/.idea/modules/by.titanic.Server.main.iml
+new file mode 100644
+--- /dev/null	(date 1730997837492)
++++ b/.idea/modules/by.titanic.Server.main.iml	(date 1730997837492)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module version="4">
++  <component name="FacetManager">
++    <facet type="jpa" name="JPA">
++      <configuration>
++        <setting name="validation-enabled" value="true" />
++        <setting name="provider-name" value="Hibernate" />
++        <datasource-mapping />
++        <naming-strategy-map />
++      </configuration>
++    </facet>
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules/Server.main.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules/Server.main.iml b/.idea/modules/Server.main.iml
+new file mode 100644
+--- /dev/null	(date 1730997837492)
++++ b/.idea/modules/Server.main.iml	(date 1730997837492)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: Server/src/main/java/by/titanic/server/models/OrganizationLinks.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package by.titanic.server.models;\n\nimport by.titanic.server.models.Organization;\nimport jakarta.persistence.*;\nimport lombok.*;\n\n@Entity\n@Table(name = \"organization_links\")\n@Data\n@NoArgsConstructor\n@AllArgsConstructor\npublic class OrganizationLinks {\n//\n    @Id\n    private Integer id;\n\n    @OneToOne\n    @JoinColumn(name = \"id\", referencedColumnName = \"id\")\n    private Organization organization;\n\n    @Column(name = \"telegram\", length = 128)\n    private String telegram;\n\n    @Column(name = \"x\", length = 128)\n    private String x;\n\n    @Column(name = \"github\", length = 128)\n    private String github;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/models/OrganizationLinks.java b/Server/src/main/java/by/titanic/server/models/OrganizationLinks.java
+--- a/Server/src/main/java/by/titanic/server/models/OrganizationLinks.java	(revision fd7069268d2e4ffe8e75badcd5c57a8d681c01db)
++++ b/Server/src/main/java/by/titanic/server/models/OrganizationLinks.java	(date 1730997837506)
+@@ -12,10 +12,11 @@
+ public class OrganizationLinks {
+ //
+     @Id
+-    private Integer id;
++    private Integer organization_id;
+ 
++    //Предлагаю переименовать слобец id в organization_id для этой сущности, так как нам не нужно отдельного id для линков
+     @OneToOne
+-    @JoinColumn(name = "id", referencedColumnName = "id")
++    @JoinColumn(name = "organization_id", referencedColumnName = "id")
+     private Organization organization;
+ 
+     @Column(name = "telegram", length = 128)
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"b1743959-4e13-479c-bf35-b9f5278a81a2\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/gradle.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/gradle.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Server/.gitignore\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Server/.gitignore\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ExternalProjectsData\">\n    <projectState path=\"$PROJECT_DIR$/Server\">\n      <ProjectState />\n    </projectState>\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n        <option value=\"Enum\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;yaroslavesev&quot;\n  }\n}</component>\n  <component name=\"GithubDefaultAccount\">\n    <option name=\"defaultAccountId\" value=\"13abb90e-1a0e-4b04-bbf6-7dae29780b59\" />\n  </component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/weebatt/Titanic.git&quot;,\n    &quot;accountId&quot;: &quot;13abb90e-1a0e-4b04-bbf6-7dae29780b59&quot;\n  }\n}</component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 6\n}</component>\n  <component name=\"ProjectId\" id=\"2oCAYUJkmRqnDPlGpgR2YD3hPVQ\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Gradle.Build Server.executor&quot;: &quot;Run&quot;,\n    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,\n    &quot;Gradle.Server.executor&quot;: &quot;Run&quot;,\n    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,\n    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,\n    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,\n    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;Spring Boot.ServerApplication.executor&quot;: &quot;Run&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/tu/ITMO&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  },\n  &quot;keyToStringList&quot;: {\n    &quot;DatabaseDriversLRU&quot;: [\n      &quot;postgresql&quot;\n    ]\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"ServerApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\n      <module name=\"Server.main\" />\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"by.titanic.server.ServerApplication\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103\" />\n        <option value=\"bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"b1743959-4e13-479c-bf35-b9f5278a81a2\" name=\"Changes\" comment=\"\" />\n      <created>1730363231646</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1730363231646</updated>\n      <workItem from=\"1730363232684\" duration=\"6396000\" />\n      <workItem from=\"1730458621942\" duration=\"418000\" />\n      <workItem from=\"1730624122220\" duration=\"1675000\" />\n      <workItem from=\"1730996447128\" duration=\"1272000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision fd7069268d2e4ffe8e75badcd5c57a8d681c01db)
++++ b/.idea/workspace.xml	(date 1730998115318)
+@@ -5,9 +5,41 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="b1743959-4e13-479c-bf35-b9f5278a81a2" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/modules/Server.main.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/modules/by.titanic.Server.main.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Frontend/app.js" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Frontend/imgs/background.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Frontend/imgs/button.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Frontend/imgs/dao_panel.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Frontend/imgs/lupa.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Frontend/index.html" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Frontend/style.css" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Frontend/tonconnect-manifest.json" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/DTO/OrganizationProfileDTO.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/DTO/ProposalInfoDTO.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/OrganizationLinksRepository.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/ProposalInfoRepository.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/OrganizationProfileService.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/ProposalProfileService.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Server/src/main/resources/static/css/Profile.css" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Server/src/main/resources/templates/profile.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Server/.gitignore" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/ProposalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/ProposalController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/OrganizationLinks.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/OrganizationLinks.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/Proposal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/Proposal.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/OrganizationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/OrganizationRepository.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/ProposalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/ProposalRepository.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/OrganizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/OrganizationService.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/ProposalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/ProposalService.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -53,34 +85,34 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Gradle.Build Server.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.Server.executor&quot;: &quot;Run&quot;,
+-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;Spring Boot.ServerApplication.executor&quot;: &quot;Run&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/home/tu/ITMO&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Gradle.Build Server.executor": "Run",
++    "Gradle.Download Sources.executor": "Run",
++    "Gradle.Server.executor": "Run",
++    "RequestMappingsPanelOrder0": "0",
++    "RequestMappingsPanelOrder1": "1",
++    "RequestMappingsPanelWidth0": "75",
++    "RequestMappingsPanelWidth1": "75",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "Spring Boot.ServerApplication.executor": "Run",
++    "git-widget-placeholder": "Merging main",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "/home/tu/Projects/Titanic",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
++    "vue.rearranger.settings.migration": "true"
+   },
+-  &quot;keyToStringList&quot;: {
+-    &quot;DatabaseDriversLRU&quot;: [
+-      &quot;postgresql&quot;
++  "keyToStringList": {
++    "DatabaseDriversLRU": [
++      "postgresql"
+     ]
+   }
+-}</component>
++}]]></component>
+   <component name="RunManager">
+     <configuration name="ServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+       <module name="Server.main" />
+@@ -106,10 +138,7 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1730363231646</updated>
+-      <workItem from="1730363232684" duration="6396000" />
+-      <workItem from="1730458621942" duration="418000" />
+-      <workItem from="1730624122220" duration="1675000" />
+-      <workItem from="1730996447128" duration="1272000" />
++      <workItem from="1730363232684" duration="3870000" />
+     </task>
+     <servers />
+   </component>
+Index: Server/src/main/java/by/titanic/server/models/Proposal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package by.titanic.server.models;\nimport jakarta.persistence.*;\nimport lombok.*;\n\n@Entity\n@Table(name = \"proposal\")\n@Data\n@NoArgsConstructor\n@AllArgsConstructor\npublic class Proposal {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Integer id;\n\n    @Column(name = \"first_option\", length = 64, nullable = false)\n    private String firstOption;\n\n    @Column(name = \"second_option\", length = 64, nullable = false)\n    private String secondOption;\n\n    @Column(name = \"third_option\", length = 64)\n    private String thirdOption;\n\n    @Column(name = \"start_date\", nullable = false)\n    private java.sql.Timestamp startDate;\n\n    @Column(name = \"end_date\", nullable = false)\n    private java.sql.Timestamp endDate;\n\n    @Column(name = \"status\", nullable = false)\n    private int status;\n\n    @Column(name = \"topic\", length = 128, nullable = false)\n    private String topic;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Server/src/main/java/by/titanic/server/models/Proposal.java b/Server/src/main/java/by/titanic/server/models/Proposal.java
+--- a/Server/src/main/java/by/titanic/server/models/Proposal.java	(revision fd7069268d2e4ffe8e75badcd5c57a8d681c01db)
++++ b/Server/src/main/java/by/titanic/server/models/Proposal.java	(date 1730997837506)
+@@ -2,17 +2,26 @@
+ import jakarta.persistence.*;
+ import lombok.*;
+ 
++import java.util.HashMap;
++
+ @Entity
+ @Table(name = "proposal")
+ @Data
+ @NoArgsConstructor
+ @AllArgsConstructor
+ public class Proposal {
+-
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private Integer id;
+ 
++    @Column
++    private Integer organization_id;
++
++    //Предлагаю добавить столбец organization_id в эту сущность, чтобы ссылаться на конкретную организацию, от которой поступает предложение
++    @ManyToOne
++    @JoinColumn(name = "organization_id", referencedColumnName = "id")
++    private Organization organization;
++
+     @Column(name = "first_option", length = 64, nullable = false)
+     private String firstOption;
+ 
+@@ -29,8 +38,16 @@
+     private java.sql.Timestamp endDate;
+ 
+     @Column(name = "status", nullable = false)
+-    private int status;
++    private String status;
+ 
+     @Column(name = "topic", length = 128, nullable = false)
+     private String topic;
++
++    public HashMap<String, String> getMapOfOptions(){
++        HashMap<String, String> options = new HashMap<>();
++        options.put("first_option", this.firstOption);
++        options.put("second_option", this.secondOption);
++        options.put("third_option", this.thirdOption);
++        return options;
++    }
+ }
+diff --git a/Frontend/tonconnect-manifest.json b/Frontend/tonconnect-manifest.json
+new file mode 100644
