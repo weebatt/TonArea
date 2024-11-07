@@ -4,29 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1743959-4e13-479c-bf35-b9f5278a81a2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/DTO/OrganizationProfileDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/DTO/ProposalInfoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/OrganizationLinksRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/ProposalInfoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/OrganizationProfileService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/ProposalProfileService.java" afterDir="false" />
+    <list default="true" id="b1743959-4e13-479c-bf35-b9f5278a81a2" name="Changes" comment="saved">
+      <change afterPath="$PROJECT_DIR$/Frontend/.idea/Frontend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/tonconnect-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/resources/static/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/resources/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/resources/static/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/resources/static/tonconnect-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_24,_7_49 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_24__7_49PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/OrganizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/OrganizationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/ProposalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/ProposalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/OrganizationLinks.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/OrganizationLinks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/Proposal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/Proposal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/OrganizationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/OrganizationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/ProposalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/ProposalRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/OrganizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/OrganizationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/ProposalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/ProposalService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +81,7 @@
     "Spring Boot.ServerApplication.executor": "Run",
     "git-widget-placeholder": "mainPageDevelopment1",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/macbook/pets/Titanic",
+    "last_opened_file_path": "/home/tu/Projects/Titanic/Server/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -104,6 +99,14 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Server/src/main/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Server/src/main/resources/static" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="ServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Server.main" />

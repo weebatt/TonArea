@@ -5,8 +5,9 @@ import by.titanic.server.models.Organization;
 import by.titanic.server.services.OrganizationProfileService;
 import by.titanic.server.services.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 @RestController
@@ -19,10 +20,22 @@ public class OrganizationController {
     @Autowired
     private OrganizationProfileService organizationProfileService;
 
+//    @GetMapping("/all")
+//    public List<Organization> getAllOrganizations() {
+//        return organizationService.getAllOrganizations();
+//    }
+    @GetMapping("/all")
+    public List<Organization> getAllOrganizations() {
+        List<Organization> organizations = organizationService.getAllOrganizations();
+        System.out.println("Found organizations: " + organizations.size());
+        return organizations;
+    }
 
     @GetMapping
-    public List<Organization> getAllOrganizations() {
-        return organizationService.getAllOrganizations();
+    public Page<Organization> getOrganizations(
+            @RequestParam(value = "name", required = false) String name,
+            Pageable pageable) {
+        return organizationService.searchOrganizations(name, pageable);
     }
 
     @PostMapping
@@ -30,12 +43,8 @@ public class OrganizationController {
         return organizationService.createOrganization(organization);
     }
 
-    /**
-     *The method returns information for the page to which we go when selecting a company
-     */
     @GetMapping("/{orgName}")
     public OrganizationProfileDTO getOrganizationPage(@PathVariable("orgName") String name) {
         return organizationProfileService.showProfile(name);
     }
 }
-

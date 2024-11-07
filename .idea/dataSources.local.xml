@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-242.23726.103">
-    <data-source name="titanic@62.60.159.0" uuid="d42104c0-f0a4-445e-b1c3-73a542325640">
+    <data-source name="titanic" uuid="d42104c0-f0a4-445e-b1c3-73a542325640">
       <database-info product="PostgreSQL" version="15.8 (Debian 15.8-0+deb12u1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="15.8" exact-driver-version="42.6">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>weebat</user-name>
+      <user-name>crud1k</user-name>
       <schema-mapping>
         <introspection-scope>
           <node kind="database" qname="@">
