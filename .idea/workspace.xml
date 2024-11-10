@@ -5,18 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1743959-4e13-479c-bf35-b9f5278a81a2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/Server.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c596ce74-3e7c-492c-9182-fb4200cd10f6/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/DTO/MemberDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/DTO/MemberDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/DTO/OrganizationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/DTO/OrganizationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/DTO/OrganizationProfileDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/DTO/OrganizationProfileDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/DTO/ProposalDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/DTO/ProposalDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/DTO/ProposalInfoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/DTO/ProposalInfoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/controllers/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/OrganizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/controllers/OrganizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/controllers/ProposalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/controllers/ProposalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/models/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/ModerationStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/models/ModerationStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/Organization.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/models/Organization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/OrganizationLinks.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/models/OrganizationLinks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/OrganizationModeration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/models/OrganizationModeration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/OrganizationModerationId.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/models/OrganizationModerationId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/OrganizationProposal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/models/OrganizationProposal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/OrganizationProposalId.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/models/OrganizationProposalId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/Proposal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/models/Proposal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/ProposalInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/models/ProposalInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/ProposalStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/models/ProposalStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/models/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/models/Wallet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/repositories/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/OrganizationLinksRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/repositories/OrganizationLinksRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/OrganizationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/repositories/OrganizationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/ProposalInfoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/repositories/ProposalInfoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/repositories/ProposalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/repositories/ProposalRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/services/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/OrganizationProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/services/OrganizationProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/OrganizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/services/OrganizationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/ProposalProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/services/ProposalProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/by/titanic/server/services/ProposalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/by/tonArea/server/services/ProposalService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/resources/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/resources/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/test/java/by/titanic/server/ServerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/test/java/by/tonArea/server/ServerApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,42 +87,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build Server.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Server.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/macbook/pets/Titanic&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build Server.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.Server.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ServerApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/macbook/Projects/pets/TonArea",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="by.titanic.Server.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="by.titanic.server.ServerApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="by.tonArea.server.ServerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -124,6 +149,9 @@
       <workItem from="1730405591083" duration="2705000" />
       <workItem from="1730408349647" duration="7258000" />
       <workItem from="1730463407057" duration="1597000" />
+      <workItem from="1731177614517" duration="19000" />
+      <workItem from="1731177648566" duration="28000" />
+      <workItem from="1731177694914" duration="21412000" />
     </task>
     <servers />
   </component>
