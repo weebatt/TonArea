@@ -1,5 +1,4 @@
 HELP.md
-databaseuserpasswds.config
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -26,6 +25,9 @@ bin/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+.idea/gradle.xml
+.idea/worspace.xml
+.idea/vcs.xml
 
 ### NetBeans ###
 /nbproject/private/
